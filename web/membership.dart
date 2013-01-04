@@ -3,16 +3,13 @@ import 'package:membership/membership.dart';
 
 var members = new Members();
 
-// binding created automatically
-void createNewMember() {
+void addMember() {
   var input = query("#new-member");
   members.add(new Member(input.value));
   input.value = "";
-  //members.display();
 }
 
 main() {
-  // create several members
   var member1 = new Member('dzenanr');
   var member2 = new Member('davidc');
   var member3 = new Member('timr');

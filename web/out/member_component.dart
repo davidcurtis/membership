@@ -1,4 +1,4 @@
-// Auto-generated from member_list.html.
+// Auto-generated from member_component.html.
 // DO NOT EDIT.
 
 library x_member;
