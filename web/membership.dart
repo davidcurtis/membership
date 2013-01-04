@@ -1,7 +1,15 @@
 import 'dart:html';
-import 'package:membership/members.dart';
+import 'package:membership/membership.dart';
 
 var members = new Members();
+
+// binding created automatically
+void createNewMember() {
+  var input = query("#new-member");
+  members.add(new Member(input.value));
+  input.value = "";
+  //members.display();
+}
 
 main() {
   // create several members

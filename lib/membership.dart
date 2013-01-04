@@ -5,6 +5,10 @@ class Member {
   String password = '';
 
   Member(this.code);
+
+  display() {
+    print(code);
+  }
 }
 
 class Members {
@@ -14,5 +18,13 @@ class Members {
 
   add(Member member) {
     _members.add(member);
+  }
+
+  List<Member> get list => _members;
+
+  display() {
+    _members.forEach((m) {
+      m.display();
+    });
   }
 }

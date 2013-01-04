@@ -11,9 +11,12 @@
   <body>
     <h1>Members</h1>
 
-    <ul id="members" class="target">
-      <template iterate="member in members">
-        <x-member-item member="{{ member }}"></x-member-item>
+    <input id="new-member" type="text" placeholder="member code">
+    <button on-click="createNewMember()">Add Member</button>
+
+    <ul id="member-list" class="target">
+      <template iterate="m in members.list">
+        <x-member-list member="{{ m }}"></x-member-list>
       </template>
     </ul>
 
