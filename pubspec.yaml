@@ -1,0 +1,6 @@
+name:  membership
+description:  A sample application
+
+dependencies:
+  web_ui: any
+
