@@ -3,6 +3,7 @@ library membership;
 class Member {
   String code;
   String password = '';
+  bool admin = false;
 
   Member(this.code);
 

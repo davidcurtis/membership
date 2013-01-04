@@ -11,6 +11,7 @@ void addMember() {
 
 main() {
   var member1 = new Member('dzenanr');
+  member1.admin = true;
   var member2 = new Member('davidc');
   var member3 = new Member('timr');
   members.add(member1);
