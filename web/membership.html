@@ -4,21 +4,13 @@
   <head>
     <meta charset="utf-8">
     <title>Membership</title>
-    <link rel="components" href="component/member_component.html">
-    <link rel="stylesheet" href="css/list.css"/>
+    <link rel="components" href="component/member/member_list_update.html">
     <link rel="stylesheet" href="css/page.css"/>
   </head>
   <body>
-    <h1>Members</h1>
+    <h1>Membership</h1>
 
-    <input id="new-member" type="text" placeholder="member code">
-    <button on-click="addMember()">Add Member</button>
-
-    <ul id="member-list" class="target">
-      <template iterate="m in members.list">
-        <x-member member="{{ m }}"></x-member>
-      </template>
-    </ul>
+    <x-member-list-update members="{{ members }}"></x-member-list-update>
 
     <script type="application/dart" src="membership.dart"></script>
     <script type="text/javascript" src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
