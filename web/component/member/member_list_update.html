@@ -14,29 +14,22 @@
           <input id="code" type="text"/>
           <label for="password">Password</label>
           <input id="password" type="password"/>
-          <br/>
           <label for="firstName">First Name</label>
           <input id="firstName" type="text"/>
           <label for="lastName">Last Name</label>
           <input id="lastName" type="text"/>
+          <br/>
           <button on-click="addMember()">Add Member</button>
+          <label id="message"></label>
         </div>
         <ul>
           <template iterate="member in members.list">
             <li>
-              {{ member.code }}: {{ member.lastName }}, {{ member.firstName }}
+              {{ member.lastName }}, {{ member.firstName }}
             </li>
           </template>
         </ul>
         <style>
-          div {
-            background: #eaeaea;
-            padding: 5px;
-          }
-          ul {
-            font-size: 16px;
-            background: #dcdcdc;
-          }
           button {
             padding: 1px;
             background: #ffcc99;
@@ -46,6 +39,18 @@
             border-color: #d7b9c9;
             font-weight: bold;
             text-align: center;
+          }
+          div {
+            background: #eaeaea;
+            padding: 5px;
+          }
+          ul {
+            font-size: 16px;
+            background: #dcdcdc;
+          }
+          #message {
+            font-size: 16px;
+            background: lightyellow;
           }
         </style>
       </template>

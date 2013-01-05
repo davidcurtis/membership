@@ -6,17 +6,38 @@ class MemberListUpdate extends WebComponent {
 
   addMember() {
     var code = query("#code");
-    var member = new Member(code.value);
     var password = query("#password");
     var firstName = query("#firstName");
     var lastName = query("#lastName");
-    member.password = password.value;
-    member.firstName = firstName.value;
-    member.lastName = lastName.value;
-    members.add(member);
-    code.value = "";
-    password.value = "";
-    firstName.value = "";
-    lastName.value = "";
+    var message = query("#message");
+    var error = false;
+    message.text = '';
+    if (code.value.trim() == '') {
+      message.text = 'code is mandatory; ${message.text}';
+      error = true;
+    }
+    if (password.value.trim() == '') {
+      message.text = 'password is mandatory; ${message.text}';
+      error = true;
+    }
+    if (firstName.value.trim() == '') {
+      message.text = 'first name is mandatory; ${message.text}';
+      error = true;
+    }
+    if (lastName.value.trim() == '') {
+      message.text = 'last name is mandatory; ${message.text}';
+      error = true;
+    }
+    if (!error) {
+      var member = new Member(code.value);
+      member.password = password.value;
+      member.firstName = firstName.value;
+      member.lastName = lastName.value;
+      members.add(member);
+      code.value = "";
+      password.value = "";
+      firstName.value = "";
+      lastName.value = "";
+    }
   }
 }
