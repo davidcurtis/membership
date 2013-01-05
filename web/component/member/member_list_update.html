@@ -6,26 +6,37 @@
     <title>Member List Update</title>
   </head>
   <body>
-    <element name="x-member-list-update" extends="ui">
-      <template>
-        <h2>Members</h2>
-        <label for="code">Code</label>
-        <input id="code" type="text"/>
-        <label for="password">Password</label>
-        <input id="password" type="password"/>
-        <br/>
-        <label for="firstName">First Name</label>
-        <input id="firstName" type="text"/>
-        <label for="lastName">Last Name</label>
-        <input id="lastName" type="text"/>
-        <button on-click="addMember()">Add Member</button>
-        <br/><br/>
-        <template iterate="member in members.list">
-          <li>
-            {{ member.code }}: {{ member.lastName }}, {{ member.firstName }}
-          </li>
-        </template>
+    <element name="x-member-list-update" extends="section">
+      <template class="component">
+        <content></content>
+        <div>
+          <label for="code">Code</label>
+          <input id="code" type="text"/>
+          <label for="password">Password</label>
+          <input id="password" type="password"/>
+          <br/>
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text"/>
+          <label for="lastName">Last Name</label>
+          <input id="lastName" type="text"/>
+          <button on-click="addMember()">Add Member</button>
+        </div>
+        <ul>
+          <template iterate="member in members.list">
+            <li>
+              {{ member.code }}: {{ member.lastName }}, {{ member.firstName }}
+            </li>
+          </template>
+        </ul>
         <style>
+          div {
+            background: #eaeaea;
+            padding: 5px;
+          }
+          ul {
+            font-size: 16px;
+            background: #dcdcdc;
+          }
           button {
             padding: 1px;
             background: #ffcc99;
