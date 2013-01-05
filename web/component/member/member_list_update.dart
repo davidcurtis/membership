@@ -34,10 +34,9 @@ class MemberListUpdate extends WebComponent {
       member.firstName = firstName.value;
       member.lastName = lastName.value;
       members.add(member);
+      members.order();
       code.value = "";
       password.value = "";
-      firstName.value = "";
-      lastName.value = "";
     }
   }
 }
