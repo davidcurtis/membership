@@ -4,9 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>Member List Update</title>
+    <link rel="components" href="member_list.html">
   </head>
   <body>
-    <element name="x-member-list-update" extends="section">
+    <element name="x-member-list-add" extends="section">
       <template>
         <content></content>
         <div>
@@ -19,16 +20,10 @@
           <label for="lastName">Last Name</label>
           <input id="lastName" type="text"/>
           <br/>
-          <button on-click="addMember()">Add Member</button>
+          <button on-click="add()">Add</button>
           <label id="message"></label>
         </div>
-        <ul>
-          <template iterate="member in members.list">
-            <li>
-              {{ member.toString() }}
-            </li>
-          </template>
-        </ul>
+        <x-member-list members="{{ members }}"></x-member-list>
         <style>
           button {
             padding: 1px;
@@ -44,17 +39,13 @@
             background: #eaeaea;
             padding: 5px;
           }
-          ul {
-            font-size: 16px;
-            background: #dcdcdc;
-          }
           #message {
             font-size: 14px;
             background: lightyellow;
           }
         </style>
       </template>
-      <script type="application/dart" src="member_list_update.dart"></script>
+      <script type="application/dart" src="member_list_add.dart"></script>
     </element>
   </body>
 </html>

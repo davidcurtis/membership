@@ -1,10 +1,10 @@
 import 'package:web_ui/web_ui.dart';
 import 'package:membership/membership.dart';
 
-class MemberListUpdate extends WebComponent {
+class MemberListAdd extends WebComponent {
   Members members;
 
-  addMember() {
+  add() {
     var code = query("#code");
     var password = query("#password");
     var firstName = query("#firstName");
