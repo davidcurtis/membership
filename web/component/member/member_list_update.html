@@ -10,19 +10,7 @@
     <element name="x-member-list-add" extends="section">
       <template>
         <content></content>
-        <div>
-          <label for="code">Code</label>
-          <input id="code" type="text"/>
-          <label for="password">Password</label>
-          <input id="password" type="password"/>
-          <label for="firstName">First Name</label>
-          <input id="firstName" type="text"/>
-          <label for="lastName">Last Name</label>
-          <input id="lastName" type="text"/>
-          <br/>
-          <button on-click="add()">Add</button>
-          <label id="message"></label>
-        </div>
+        <x-member-add members="{{ members }}"></x-member-add>
         <x-member-list members="{{ members }}"></x-member-list>
         <style>
           button {
@@ -45,7 +33,7 @@
           }
         </style>
       </template>
-      <script type="application/dart" src="member_list_add.dart"></script>
+      <script type="application/dart" src="member_list_update.dart"></script>
     </element>
   </body>
 </html>

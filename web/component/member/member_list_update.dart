@@ -1,11 +1,10 @@
-import 'package:web_ui/web_ui.dart';
 import 'package:membership/membership.dart';
+import 'package:web_ui/web_ui.dart';
 
-class MemberSignUp extends WebComponent {
+class MemberListAdd extends WebComponent {
   Members members;
-  bool showSignUp = true;
 
-  signUp() {
+  add() {
     var code = query("#code");
     var password = query("#password");
     var firstName = query("#firstName");
@@ -36,8 +35,8 @@ class MemberSignUp extends WebComponent {
       member.lastName = lastName.value;
       members.add(member);
       members.order();
-      showSignUp = false;
+      code.value = "";
+      password.value = "";
     }
   }
-
 }

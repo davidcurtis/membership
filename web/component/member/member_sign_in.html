@@ -4,33 +4,26 @@
   <head>
     <meta charset="utf-8">
     <title>Member Sign In</title>
+    <link rel="components" href="member_add.html">
   </head>
   <body>
     <element name="x-member-sign-in" extends="section">
       <template>
-        <div template instantiate="if showSignOut">
-          <button on-click="signOut()">Sign Out</button>
-        </div>
         <div template instantiate="if showSignIn">
-          <div>
-            <label id="message"></label>
-          </div>
           <label for="code">Code</label>
           <input id="code" type="text"/>
           <label for="password">Password</label>
           <input id="password" type="password"/>
+          <br/>
+          <button on-click="signIn()">Sign In</button>
+          <button on-click="signUp()">Sign Up</button>
+          <label id="message"></label>
           <div template instantiate="if showSignUp">
-            <label for="firstName">First Name</label>
-            <input id="firstName" type="text"/>
-            <label for="lastName">Last Name</label>
-            <input id="lastName" type="text"/>
-            <br/>
-            <button on-click="add()">Add</button>
+            <x-member-add members="{{ members }}"></x-member-add>
           </div>
-          <div template instantiate="if showSignInButtons">
-            <button on-click="signIn()">Sign In</button>
-            <button on-click="signUp()">Sign Up</button>
-          </div>
+        </div>
+        <div template instantiate="if showSignOut">
+          <button on-click="signOut()">Sign Out</button>
         </div>
         <style>
           button {
@@ -44,7 +37,6 @@
             text-align: center;
           }
           div {
-            background: #eaeaea;
             padding: 5px;
           }
           #message {

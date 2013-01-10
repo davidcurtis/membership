@@ -8,13 +8,15 @@
   <body>
     <element name="x-member-list" extends="section">
       <template>
-        <ul>
-          <template iterate="member in members.list">
-            <li>
-              {{ member.toString() }}
-            </li>
-          </template>
-        </ul>
+        <div>
+          <ul>
+            <template iterate="member in members.list">
+              <li>
+                {{ member.toString() }}
+              </li>
+            </template>
+          </ul>
+        </div>
         <style>
           ul {
             font-size: 16px;

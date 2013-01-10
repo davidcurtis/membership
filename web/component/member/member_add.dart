@@ -1,7 +1,7 @@
-import 'package:web_ui/web_ui.dart';
 import 'package:membership/membership.dart';
+import 'package:web_ui/web_ui.dart';
 
-class MemberListAdd extends WebComponent {
+class MemberAdd extends WebComponent {
   Members members;
 
   add() {
@@ -35,8 +35,7 @@ class MemberListAdd extends WebComponent {
       member.lastName = lastName.value;
       members.add(member);
       members.order();
-      code.value = "";
-      password.value = "";
     }
   }
+
 }
