@@ -19,7 +19,9 @@
           <button on-click="signUp()">Sign Up</button>
           <label id="message"></label>
           <div template instantiate="if showSignUp">
-            <x-member-add members="{{ members }}"></x-member-add>
+            <x-member-add members="{{ members }}">
+              after add sign in
+            </x-member-add>
           </div>
         </div>
         <div template instantiate="if showSignOut">

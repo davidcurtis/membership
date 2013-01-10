@@ -42,8 +42,13 @@ class Members {
 
   Iterator<Member> iterator() => _members.iterator();
 
-  add(Member member) {
-    _members.add(member);
+  bool add(Member member) {
+    if (contain(member.code)) {
+      return false;
+    } else {
+      _members.add(member);
+      return true;
+    }
   }
 
   List<Member> get list => _members;

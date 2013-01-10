@@ -33,8 +33,12 @@ class MemberAdd extends WebComponent {
       member.password = password.value;
       member.firstName = firstName.value;
       member.lastName = lastName.value;
-      members.add(member);
-      members.order();
+      if (members.add(member)) {
+        message.text = 'added';
+        members.order();
+      } else {
+        message.text = 'code already in use';
+      }
     }
   }
 

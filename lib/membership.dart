@@ -1,4 +1,4 @@
-library membership_model;
+library membership;
 
 part 'model/members.dart';
 
