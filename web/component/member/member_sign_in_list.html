@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Member Sign In List</title>
     <link rel="components" href="member_sign_in.html">
-    <link rel="components" href="member_list_update.html">
+    <link rel="components" href="member_update_by_admin.html">
     <link rel="components" href="member_list.html">
   </head>
   <body>
@@ -13,7 +13,8 @@
       <template>
         <x-member-sign-in members="{{ members }}"></x-member-sign-in>
         <div template instantiate="if adminSignedIn">
-          <x-member-list-update members="{{ members }}"></x-member-list-update>
+          <x-member-update-by-admin members="{{ members }}">
+          </x-member-update-by-admin>
         </div>
         <div template instantiate="if memberSignedIn">
           <x-member-list members="{{ members }}"></x-member-list>
