@@ -10,4 +10,12 @@ main() {
   administrator.lastName = 'Ridjanovic';
   administrator.admin = true;
   members.add(administrator);
+
+  var member = new Member('acr');
+  member.password = 'acr';
+  member.firstName = 'Amra';
+  member.lastName = 'Curovac Ridjanovic';
+  members.add(member);
+
+  members.order();
 }

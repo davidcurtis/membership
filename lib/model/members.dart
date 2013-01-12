@@ -79,6 +79,17 @@ class Members {
     }
   }
 
+  bool remove(Member member) {
+    for (Member m in _members) {
+      if (m.code == member.code) {
+        int index = _members.indexOf(m, 0);
+        _members.removeAt(index);
+        return true;
+      }
+    }
+    return false;
+  }
+
   display() {
     _members.forEach((m) {
       m.display();

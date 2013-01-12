@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:membership/membership.dart';
 import 'package:web_ui/web_ui.dart';
 
@@ -5,11 +7,11 @@ class MemberAdd extends WebComponent {
   Members members;
 
   add() {
-    var code = query("#code");
-    var password = query("#password");
-    var firstName = query("#firstName");
-    var lastName = query("#lastName");
-    var message = query("#message");
+    InputElement code = query("#code");
+    InputElement password = query("#password");
+    InputElement firstName = query("#firstName");
+    InputElement lastName = query("#lastName");
+    LabelElement message = query("#message");
     var error = false;
     message.text = '';
     if (code.value.trim() == '') {

@@ -1,26 +1,23 @@
+import 'dart:html';
+
 import 'package:membership/membership.dart';
 import 'package:web_ui/web_ui.dart';
 
 class MemberSignIn extends WebComponent {
   Members members;
   Member signedInMember;
+
   bool showSignIn = true;
   bool showSignUp = false;
+  bool showMember = false;
   bool showSignOut = false;
 
-  var code;
-  var password;
-  var firstName;
-  var lastName;
-  var message;
-  var error = false;
-
   signIn() {
-    code = query("#code");
-    password = query("#password");
-    message = query("#message");
+    InputElement code = query("#sign-in-code");
+    InputElement password = query("#sign-in-password");
+    LabelElement message = query("#sign-in-message");
     message.text = '';
-    error = false;
+    var error = false;
     if (code.value.trim() == '') {
       message.text = 'code is mandatory; ${message.text}';
       error = true;
@@ -47,15 +44,20 @@ class MemberSignIn extends WebComponent {
   }
 
   signUp() {
-    message = query("#message");
+    LabelElement message = query("#sign-in-message");
     message.text = '';
     showSignUp = true;
+  }
+
+  member() {
+    showMember = true;
   }
 
   signOut() {
     signedInMember = null;
     showSignIn = true;
     showSignUp = false;
+    showMember = false;
     showSignOut = false;
   }
 }

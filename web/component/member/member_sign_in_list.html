@@ -9,7 +9,7 @@
     <link rel="components" href="member_list.html">
   </head>
   <body>
-    <element name="x-member-sign-in-list" extends="section">
+    <element name="x-member-sign-in-list" extends="span">
       <template>
         <x-member-sign-in members="{{ members }}"></x-member-sign-in>
         <div template instantiate="if adminSignedIn">
