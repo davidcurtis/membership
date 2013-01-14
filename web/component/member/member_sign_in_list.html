@@ -12,11 +12,11 @@
     <element name="x-member-sign-in-list" extends="span">
       <template>
         <x-member-sign-in members="{{ members }}"></x-member-sign-in>
-        <div template instantiate="if adminSignedIn">
+        <div template if="adminSignedIn">
           <x-member-update-by-admin members="{{ members }}">
           </x-member-update-by-admin>
         </div>
-        <div template instantiate="if memberSignedIn">
+        <div template if="memberSignedIn">
           <x-member-list members="{{ members }}"></x-member-list>
         </div>
       </template>

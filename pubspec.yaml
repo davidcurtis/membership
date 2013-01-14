@@ -2,5 +2,6 @@ name:  membership
 description:  A sample application
 
 dependencies:
+  browser: any
   web_ui: any
 

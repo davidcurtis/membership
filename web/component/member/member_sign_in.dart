@@ -13,9 +13,9 @@ class MemberSignIn extends WebComponent {
   bool showSignOut = false;
 
   signIn() {
-    InputElement code = query("#sign-in-code");
-    InputElement password = query("#sign-in-password");
-    LabelElement message = query("#sign-in-message");
+    InputElement code = query("#code");
+    InputElement password = query("#password");
+    LabelElement message = query("#message");
     message.text = '';
     var error = false;
     if (code.value.trim() == '') {
@@ -44,9 +44,47 @@ class MemberSignIn extends WebComponent {
   }
 
   signUp() {
-    LabelElement message = query("#sign-in-message");
+    LabelElement message = query("#message");
     message.text = '';
     showSignUp = true;
+  }
+
+  add() {
+    InputElement code = query("#code");
+    InputElement password = query("#password");
+    InputElement firstName = query("#firstName");
+    InputElement lastName = query("#lastName");
+    LabelElement message = query("#message");
+    var error = false;
+    message.text = '';
+    if (code.value.trim() == '') {
+      message.text = 'code is mandatory; ${message.text}';
+      error = true;
+    }
+    if (password.value.trim() == '') {
+      message.text = 'password is mandatory; ${message.text}';
+      error = true;
+    }
+    if (firstName.value.trim() == '') {
+      message.text = 'first name is mandatory; ${message.text}';
+      error = true;
+    }
+    if (lastName.value.trim() == '') {
+      message.text = 'last name is mandatory; ${message.text}';
+      error = true;
+    }
+    if (!error) {
+      var member = new Member(code.value);
+      member.password = password.value;
+      member.firstName = firstName.value;
+      member.lastName = lastName.value;
+      if (members.add(member)) {
+        members.order();
+        message.text = 'added, please sign in';
+      } else {
+        message.text = 'code already in use';
+      }
+    }
   }
 
   member() {

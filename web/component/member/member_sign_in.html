@@ -4,32 +4,35 @@
   <head>
     <meta charset="utf-8">
     <title>Member Sign In</title>
-    <link rel="components" href="member_add.html">
     <link rel="components" href="member_update.html">
   </head>
   <body>
     <element name="x-member-sign-in" extends="span">
       <template>
-        <div template instantiate="if showSignIn">
-          <label for="sign-in-code">Code</label>
-          <input id="sign-in-code" type="text"/>
-          <label for="sign-in-password">Password</label>
-          <input id="sign-in-password" type="password"/>
+        <div template if="showSignIn">
+          <label for="code">Code</label>
+          <input id="code" type="text"/>
+          <label for="password">Password</label>
+          <input id="password" type="password"/>
+          <br/>
+          <div template if="showSignUp">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text"/>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text"/>
+            <br/>
+            <button on-click="add()">Add</button>
+          </div>
+          <label id="message"></label>
           <br/>
           <button on-click="signIn()">Sign In</button>
           <button on-click="signUp()">Sign Up</button>
-          <label id="sign-in-message"></label>
-          <div template instantiate="if showSignUp">
-            <x-member-add members="{{ members }}">
-              after add sign in
-            </x-member-add>
-          </div>
         </div>
-        <div template instantiate="if showSignOut">
+        <div template if="showSignOut">
           <button on-click="member()">{{ signedInMember.code }}</button>
           <button on-click="signOut()">Sign Out</button>
         </div>
-        <div template instantiate="if showMember">
+        <div template if="showMember">
           <x-member-update member="{{ signedInMember }}" members="{{ members }}">
           </x-member-update>
         </div>
@@ -47,7 +50,7 @@
           div {
             padding: 5px;
           }
-          #sign-in-message {
+          #message {
             font-size: 14px;
             background: lightyellow;
           }
